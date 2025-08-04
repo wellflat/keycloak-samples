@@ -13,10 +13,9 @@ KEYCLOAK_SERVER_URL = os.getenv("KEYCLOAK_SERVER_URL", "test")
 KEYCLOAK_REALM = os.getenv("KEYCLOAK_REALM", "test")
 KEYCLOAK_CLIENT_ID = os.getenv("KEYCLOAK_CLIENT_ID", "test")
 KEYCLOAK_CLIENT_SECRET = os.getenv("KEYCLOAK_CLIENT_SECRET", "test")
-REDIRECT_URI = "http://trigkey:8000/callback" # Keycloakクライアントに登録したリダイレクトURI
-
+REDIRECT_URI = os.getenv("REDIRECT_URI", "http://localhost:8000/callback")
 # --- FastAPIアプリケーションのURL ---
-API_BASE_URL = "http://trigkey:8000"
+API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
 
 def get_tokens_from_code(authorization_code: str) -> dict | None:
     """
