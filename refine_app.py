@@ -29,7 +29,7 @@ oauth2_scheme = OAuth2AuthorizationCodeBearer(
 
 # --- FastAPIインスタンス ---
 app = FastAPI(
-    title="FastAPI with OpenID Connect (Authorization Code Flow)",
+    title="WebAPI with OpenID Connect (Authorization Code Flow)",
     description="A simple example of FastAPI integration with Keycloak for authentication and authorization.",
     version="1.0.0",
     swagger_ui_oauth2_redirect_url="/docs/oauth2-redirect",
@@ -152,7 +152,7 @@ async def protected_role_route(
     current_user: User = Depends(require_role("user"))
 ):
     """
-    認証され、かつ特定のロール('user')を持つユーザーのみがアクセスできるエンドポイント
+    認証され、かつ特定のロール('user')を持つ認可されたユーザーのみがアクセスできるエンドポイント
     """
     return current_user
 
